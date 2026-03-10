@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rodrigo Cetina Presuel — CV</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-dark:  #1F4E79;
+      --blue-mid:   #2E75B6;
+      --blue-light: #D6E4F0;
+      --gray:       #595959;
+      --gray-light: #f4f6f9;
+      --text:       #1a1a1a;
+      --border:     #d0d9e5;
+      --accent:     #e8f0f8;
+      --max-w:      860px;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text);
+      background: #f0f2f5;
+    }
+
+    .page {
+      max-width: var(--max-w);
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+
+    /* ── header ── */
+    .cv-header {
+      background: var(--blue-dark);
+      color: #fff;
+      padding: 44px 48px 36px;
+    }
+    .cv-header h1 { font-size: 2.1rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .cv-header .tagline { font-size: 1rem; color: #c5d9ef; font-style: italic; margin-bottom: 18px; }
+    .cv-header .contact-row { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 0.85rem; color: #b8ceea; }
+    .cv-header .contact-row a { color: #c5d9ef; text-decoration: none; }
+    .cv-header .contact-row a:hover { color: #fff; text-decoration: underline; }
+
+    /* ── body ── */
+    .cv-body { padding: 0 48px 48px; }
+
+    .profile {
+      background: var(--accent);
+      border-left: 4px solid var(--blue-mid);
+      border-radius: 0 4px 4px 0;
+      padding: 20px 22px;
+      margin: 36px 0 12px;
+      font-size: 0.95rem;
+      color: #2a2a2a;
+      line-height: 1.75;
+    }
+
+    .section { margin-top: 40px; }
+    .section-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--blue-dark);
+      border-bottom: 2.5px solid var(--blue-mid);
+      padding-bottom: 6px;
+      margin-bottom: 20px;
+    }
+
+    /* ── entries ── */
+    .entry { margin-bottom: 24px; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .entry-title { font-size: 0.97rem; font-weight: 700; color: var(--text); flex: 1 1 auto; }
+    .entry-date { font-size: 0.82rem; color: var(--gray); white-space: nowrap; flex-shrink: 0; }
+    .entry-org { font-size: 0.88rem; color: var(--blue-mid); font-weight: 600; margin-top: 1px; }
+    .entry-loc { font-size: 0.82rem; color: var(--gray); font-style: italic; margin-top: 1px; margin-bottom: 7px; }
+
+    ul.bullets { list-style: none; padding: 0; margin: 6px 0 0; }
+    ul.bullets li {
+      position: relative; padding-left: 18px; margin-bottom: 5px;
+      font-size: 0.90rem; color: #333; line-height: 1.6;
+    }
+    ul.bullets li::before { content: "–"; position: absolute; left: 0; color: var(--blue-mid); font-weight: 700; }
+
+    /* ── service ── */
+    .service-entry {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: baseline; gap: 8px 20px;
+      padding: 9px 0; border-bottom: 1px solid var(--border);
+    }
+    .service-entry:first-child { border-top: 1px solid var(--border); }
+    .service-title { font-size: 0.92rem; color: var(--text); }
+    .service-title a { color: var(--blue-mid); text-decoration: none; }
+    .service-title a:hover { text-decoration: underline; }
+    .service-date { font-size: 0.82rem; color: var(--gray); white-space: nowrap; }
+
+    /* ── publications ── */
+    .pub-year-group {
+      margin: 20px 0 8px;
+    }
+    .pub-year {
+      display: inline-block;
+      background: var(--blue-dark);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 2px 10px;
+      border-radius: 3px;
+    }
+    .pub-entry {
+      padding: 7px 0 7px 16px;
+      border-left: 2px solid var(--blue-light);
+      margin-bottom: 6px;
+    }
+    .pub-apa { font-size: 0.88rem; line-height: 1.65; color: var(--text); }
+    .pub-apa em { font-style: italic; }
+    a.doi {
+      font-size: 0.83rem;
+      color: var(--blue-mid);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    a.doi:hover { text-decoration: underline; }
+
+    /* ── reviewer ── */
+    .reviewer-block {
+      background: var(--gray-light); border-radius: 4px;
+      padding: 14px 18px; margin-top: 20px; font-size: 0.88rem;
+    }
+    .reviewer-block p { color: var(--gray); margin-bottom: 8px; }
+    .reviewer-block ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+    .reviewer-block ul li {
+      background: var(--blue-light); color: var(--blue-dark);
+      border-radius: 20px; padding: 3px 12px;
+      font-size: 0.82rem; font-weight: 500;
+    }
+
+    /* ── grants ── */
+    .grant-entry { margin-bottom: 16px; }
+    .grant-name { font-size: 0.92rem; font-weight: 700; color: var(--text); }
+    .grant-meta { font-size: 0.82rem; color: var(--gray); font-style: italic; margin-bottom: 3px; }
+    .grant-note { font-size: 0.86rem; color: #444; }
+
+    /* ── education ── */
+    .edu-entry { margin-bottom: 18px; }
+    .edu-degree { font-size: 0.97rem; font-weight: 700; color: var(--text); }
+    .edu-inst { font-size: 0.88rem; color: var(--blue-mid); font-weight: 600; margin-top: 2px; }
+    .edu-note { font-size: 0.85rem; color: var(--gray); font-style: italic; margin-top: 3px; }
+
+    /* ── languages ── */
+    .lang-grid { display: grid; grid-template-columns: auto 1fr; gap: 8px 24px; align-items: center; font-size: 0.90rem; }
+    .lang-name { font-weight: 700; color: var(--blue-dark); }
+    .lang-detail { color: var(--gray); }
+
+    .cv-footer {
+      text-align: center; font-size: 0.78rem; color: var(--gray);
+      border-top: 1px solid var(--border); padding: 18px 0 0; margin-top: 48px;
+    }
+
+    @media (max-width: 640px) {
+      .cv-header, .cv-body { padding-left: 22px; padding-right: 22px; }
+      .cv-header h1 { font-size: 1.6rem; }
+      .entry-header { flex-direction: column; gap: 2px; }
+      .service-entry { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: #fff; font-size: 13px; }
+      .page { box-shadow: none; border-radius: 0; margin: 0; }
+      .cv-header { background: var(--blue-dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header class="cv-header">
+    <h1>Rodrigo Cetina Presuel</h1>
+    <p class="tagline">Associate Dean for Education &nbsp;·&nbsp; Senior Lecturer &nbsp;·&nbsp; Legal Scholar</p>
+    <div class="contact-row">
+      <span>Barcelona, Spain</span>
+      <span>(+34) 654 982 402</span>
+      <span><a href="mailto:rodrigo.cetina@bsm.upf.edu">rodrigo.cetina@bsm.upf.edu</a></span>
+      <span>ORCID: <a href="https://orcid.org/0000-0002-1061-0166" target="_blank" rel="noopener">0000-0002-1061-0166</a></span>
+      <span>DOB: 20/12/1980</span>
+      <span>American</span>
+    </div>
+  </header>
+
+  <main class="cv-body">
+
+    <div class="profile">
+      Senior academic leader and legal scholar with over 15 years of experience in higher education administration, research, and teaching. Currently serving as Associate Dean for Education and Academic Affairs at UPF Barcelona School of Management, overseeing 37 staff across curriculum design, international accreditation, student and career services, online education, and international development. Active researcher specialising in digital platform regulation, disinformation, AI governance, and communication rights, with publications in leading international outlets and over &#x20AC;550,000 in active competitive grants from Erasmus+, UNESCO, NATO, and the European Commission. Bilingual (English/Spanish); affiliated with Harvard Law School (2018&#x2013;2022).
+    </div>
+
+    <!-- WORK EXPERIENCE -->
+    <section class="section">
+      <h2 class="section-title">Work Experience</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Associate Dean for Education and Academic Affairs</span>
+          <span class="entry-date">Oct 2022 &#x2013; Present</span>
+        </div>
+        <div class="entry-org">UPF Barcelona School of Management</div>
+        <div class="entry-loc">Barcelona, Spain</div>
+        <ul class="bullets">
+          <li>Leads Education and Academic Affairs with direct oversight of 37 full-time staff across curriculum design, international accreditation, registrar, student and career services, online education, and international development.</li>
+          <li>Oversees delivery of 72 programs serving 1,600+ students; manages academic offer development in collaboration with the Dean, marketing, and business development units.</li>
+          <li>Successfully secured AMBA, EQUIS (2022), and AACSB eligibility (2023); maintains ongoing relationships with AQU and ANECA quality and accreditation agencies.</li>
+          <li>Directs the BSM Inside Experience &#x2014; a suite of elective online courses developing transversal skills (public speaking, project management, data management) &#x2014; and coordinates faculty training in teaching innovation across all four academic areas.</li>
+          <li>Manages international partnerships in 20+ countries, including dual degree, student exchange, credit recognition, and research collaboration agreements; strengthened institutional presence in Latin America and established agreements with three universities in China.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Co-Director, Masters in International Business</span>
+          <span class="entry-date">Sep 2024 &#x2013; Present</span>
+        </div>
+        <div class="entry-org">UPF Barcelona School of Management</div>
+        <div class="entry-loc">Barcelona, Spain</div>
+        <ul class="bullets">
+          <li>Co-directs the Official Masters in International Business, ranked #1 in Spain and #8 in Europe by QS international rankings.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Co-Director, Masters in Public and Social Policy</span>
+          <span class="entry-date">Apr 2022 &#x2013; Present</span>
+        </div>
+        <div class="entry-org">UPF Barcelona School of Management</div>
+        <div class="entry-loc">Barcelona, Spain</div>
+        <ul class="bullets">
+          <li>Co-directs the Official Masters in Public and Social Policy, ranked #1 in Public Administration in Spain in national rankings.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Senior Lecturer in Law and Public Policy</span>
+          <span class="entry-date">Mar 2022 &#x2013; Present</span>
+        </div>
+        <div class="entry-org">UPF Barcelona School of Management</div>
+        <div class="entry-loc">Barcelona, Spain</div>
+        <ul class="bullets">
+          <li>Teaches introduction to public and social policy, qualitative research methods, and public policies against disinformation in the Masters in Law and Public Policy.</li>
+          <li>Also teaches ethics and law of data collection, international data protection schemes, and ethical/legal considerations for data analysis in the Masters in Data Analytics for Business.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Secretary General</span>
+          <span class="entry-date">Mar 2010 &#x2013; Oct 2022</span>
+        </div>
+        <div class="entry-org">UPF Barcelona School of Management</div>
+        <div class="entry-loc">Barcelona, Spain</div>
+        <ul class="bullets">
+          <li>Headed legal services for over 12 years, designing and implementing the School&#x2019;s legal strategy and representing the institution with key external stakeholders.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">School Department Head &#x2014; Management, Law, Society and Humanities</span>
+          <span class="entry-date">Mar 2022 &#x2013; Oct 2022</span>
+        </div>
+        <div class="entry-org">UPF Barcelona School of Management</div>
+        <div class="entry-loc">Barcelona, Spain</div>
+        <ul class="bullets">
+          <li>Led the academic department, coordinating program directors to ensure effective delivery of educational programs across the School.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Researcher</span>
+          <span class="entry-date">Sep 2018 &#x2013; Nov 2022</span>
+        </div>
+        <div class="entry-org">Harvard University &#x2014; Institute for Global Law and Policy</div>
+        <div class="entry-loc">Cambridge, USA</div>
+        <ul class="bullets">
+          <li>Conducted research on platform regulation and freedom of expression online at Harvard Law School.</li>
+          <li>Produced two edited volumes: <em>The Handbook of Communication Rights, Law and Ethics</em> (Wiley-Blackwell, 2021) and <em>Blockchain, Fintech and the Law</em> (Tirant lo Blanch, 2022).</li>
+          <li>Co-coordinated the Harvard European Law Association and facilitated engagement of European scholars with Harvard Law School.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Executive Director</span>
+          <span class="entry-date">Apr 2018 &#x2013; Feb 2022</span>
+        </div>
+        <div class="entry-org">Real Colegio Complutense at Harvard University</div>
+        <div class="entry-loc">Cambridge, USA</div>
+        <ul class="bullets">
+          <li>Managed daily operations of a joint Harvard&#x2013;Complutense University academic and research centre, co-presided by the Presidents of both universities.</li>
+          <li>Oversaw fellows, postdoctoral researchers, and all academic events; coordinated grant programs in conjunction with Harvard Schools, centres, and institutes.</li>
+          <li>Led redesign of the postdoctoral grant program to raise the candidate profile and ensure compliance with US government minimum postdoctoral salary requirements.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Adjunct Professor</span>
+          <span class="entry-date">Sep 2020 &#x2013; Apr 2021</span>
+        </div>
+        <div class="entry-org">New York University</div>
+        <div class="entry-loc">New York, USA</div>
+        <ul class="bullets">
+          <li>Taught Innovative City Governance at the NYU Center for Urban Science and Progress.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Adjunct Lecturer</span>
+          <span class="entry-date">Jan 2017 &#x2013; Dec 2019</span>
+        </div>
+        <div class="entry-org">Lasell University</div>
+        <div class="entry-loc">Newton, USA</div>
+        <ul class="bullets">
+          <li>Taught communication research methods, social media communication law and ethics, and corporate communications at undergraduate and masters level.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Adjunct Lecturer</span>
+          <span class="entry-date">Jan 2018 &#x2013; May 2018</span>
+        </div>
+        <div class="entry-org">Emerson College</div>
+        <div class="entry-loc">Boston, USA</div>
+        <ul class="bullets">
+          <li>Lectured in the ethics and law of data collection and analysis.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Adjunct Lecturer</span>
+          <span class="entry-date">Jan 2015 &#x2013; May 2016</span>
+        </div>
+        <div class="entry-org">City University of New York &#x2014; Queensborough Community College</div>
+        <div class="entry-loc">New York, USA</div>
+        <ul class="bullets">
+          <li>Taught a range of communication courses in the School of Humanities.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ACADEMIC LEADERSHIP AND SERVICE -->
+    <section class="section">
+      <h2 class="section-title">Academic Leadership and Service</h2>
+
+      <div class="service-entry">
+        <div class="service-title">Founding Member and Founding Co-Chair, <strong>I4T Global Knowledge Network</strong> (supported by UNESCO)</div>
+        <div class="service-date">Feb 2023 &#x2013; Present &nbsp;&#xB7;&nbsp; Paris, France</div>
+      </div>
+      <div class="service-entry">
+        <div class="service-title">Member, International Council (Legal and Ethics Committees), <strong>International Association for Media and Communication Research (IAMCR)</strong></div>
+        <div class="service-date">Jul 2022 &#x2013; Present</div>
+      </div>
+      <div class="service-entry">
+        <div class="service-title">Chair, <strong>IAMCR Law Section</strong></div>
+        <div class="service-date">2019 &#x2013; Present</div>
+      </div>
+      <div class="service-entry">
+        <div class="service-title">Vice Chair, <strong>IAMCR Law Section</strong></div>
+        <div class="service-date">2015 &#x2013; 2019</div>
+      </div>
+      <div class="service-entry">
+        <div class="service-title">Member, Editorial Board, <a href="https://revistadecomunicacion.com/index.php/rcom/es/indexacion" target="_blank" rel="noopener"><strong>Revista de Comunicaci&#xF3;n</strong></a> (Q1 Journal)</div>
+        <div class="service-date">2024 &#x2013; Present</div>
+      </div>
+
+      <div class="reviewer-block">
+        <p><strong>Peer Review Activity</strong></p>
+        <ul>
+          <li>Canadian Journal of Communication (1)</li>
+          <li>Communication Law and Policy (3)</li>
+          <li>Digital Government (1)</li>
+          <li>International Review of Administrative Sciences (1)</li>
+          <li>The Computer Law and Security Report (2)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <h2 class="section-title">Education &amp; Training</h2>
+
+      <div class="edu-entry">
+        <div class="edu-degree">Doctor in Law and Communication Sciences</div>
+        <div class="edu-inst">Universidad Complutense de Madrid</div>
+        <div class="entry-loc">2008 &#x2013; 2015 &nbsp;&#xB7;&nbsp; Madrid, Spain</div>
+        <div class="edu-note">Dissertation: <em>L&#xED;mites al derecho de autor y el uso de contenidos protegidos en el &#xE1;mbito universitario y en la investigaci&#xF3;n</em></div>
+      </div>
+
+      <div class="edu-entry">
+        <div class="edu-degree">LLM in International Law</div>
+        <div class="edu-inst">Instituto Superior de Derecho y Econom&#xED;a (IEB)</div>
+        <div class="entry-loc">2005 &nbsp;&#xB7;&nbsp; Madrid, Spain</div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="section">
+      <h2 class="section-title">Publications</h2>
+      <p style="font-size:0.82rem;color:#777;margin-bottom:12px;">Formatted in APA 7th edition. DOI links provided where available; please verify before citing.</p>
+      <div class="pub-year-group"><span class="pub-year">2026</span></div>
+      <div class="pub-entry"><p class="pub-apa">Abaurrea Velarde, J., &amp; Cetina Presuel, R. (2026). Usuarios y plataformas de video ante el nuevo registro de prestadores de la Ley General de Comunicación Audiovisual 13/2022. <em>Cuadernos de Documentación Multimedia</em>, <em>36</em>, e103033. <a class="doi" href="https://doi.org/10.5209/cdmu.103033" target="_blank" rel="noopener">https://doi.org/10.5209/cdmu.103033</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2025</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R., &amp; Gaete-Salgado, C. (2025). Análisis FIMI de la desinformación en las elecciones españolas de 2023: objetivos, canales y narrativas para dañar la confianza en el sistema electoral. <em>Derecom. Revista Internacional de Derecho de la Comunicación y de las Nuevas Tecnologías</em>, <em>38</em>(1), 29–44. <a class="doi" href="https://doi.org/10.5209/dere.99490" target="_blank" rel="noopener">https://doi.org/10.5209/dere.99490</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2025). <em>La nulidad de elección como último recurso. Sentencia SUP-JRC-101/2022</em>. Tribunal Electoral del Poder Judicial de la Federación. ISBN 978-607-708-821-9. <a class="doi" href="https://www.te.gob.mx/editorial/pdf/2447" target="_blank" rel="noopener">https://www.te.gob.mx/editorial/pdf/2447</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2024</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2024). Competición electoral. In <em>Diccionario enciclopédico de polarización política y emociones</em> (pp. 58–59). Centro de Estudios Políticos y Constitucionales. <a class="doi" href="https://dialnet.unirioja.es/servlet/articulo?codigo=9637164" target="_blank" rel="noopener">Dialnet</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2024). Alertadores fiables: de su codificación en la DSA a la necesidad de atender sus limitaciones. In I. Serrano Maíllo &amp; L. Corredoira (Eds.), <em>Democracia y desinformación: nuevas formas de polarización, discursos de odio y campañas en redes. Respuestas regulatorias de Europa y América Latina</em> (pp. 251–266). Dykinson. <a class="doi" href="https://dialnet.unirioja.es/servlet/articulo?codigo=9637164" target="_blank" rel="noopener">Dialnet</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2024). La gestión de riesgos sistémicos en la DSA: medidas específicas contra la desinformación. In A. Moreton &amp; R. Cetina Presuel (Eds.), <em>El Reglamento de Servicios Digitales de la Unión Europea (DSA): nuevo enfoque regulatorio y garantías frente a los desórdenes informativos</em> (pp. 149–190). Aranzadi. <a class="doi" href="https://dialnet.unirioja.es/servlet/articulo?codigo=9976888" target="_blank" rel="noopener">Dialnet</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2024). Imitadores estadísticos: La cuestión de la autoría y la inteligencia artificial generativa. Una visión comparada entre el derecho de autor de EE.UU. y la Unión Europea. <em>INTELETICA</em>, <em>1</em>(1), 14–37. <a class="doi" href="https://doi.org/10.4114/INTELETICA.vol1iss1pp14-37" target="_blank" rel="noopener">https://doi.org/10.4114/INTELETICA.vol1iss1pp14-37</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2024). Imitadores estadísticos: La cuestión de la autoría y la inteligencia artificial generativa. Una visión comparada entre el derecho de autor de EE.UU. y la Unión Europea. <em>Inteligencia Artificial</em>, <em>27</em>(73), 14–37. <a class="doi" href="https://doi.org/10.4114/intartif.vol27iss73pp14-37" target="_blank" rel="noopener">https://doi.org/10.4114/intartif.vol27iss73pp14-37</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R., &amp; Martinez Sierra, J. M. (2024). The adoption of artificial intelligence in bureaucratic decision-making: A Weberian perspective. <em>Digital Government: Research and Practice</em>, <em>5</em>(1), 1–20. <a class="doi" href="https://doi.org/10.1145/3609861" target="_blank" rel="noopener">https://doi.org/10.1145/3609861</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Moreton, A., &amp; Cetina Presuel, R. (Eds.). (2024). <em>El Reglamento de Servicios Digitales de la Unión Europea (DSA): Nuevo enfoque regulatorio y garantías frente a los desórdenes informativos</em>. Aranzadi. <a class="doi" href="https://dialnet.unirioja.es/servlet/libro?codigo=995425" target="_blank" rel="noopener">Dialnet</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2023</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina-Presuel, R. (2023). Muy artificial y poco inteligente: sobre la (aparente) inevitabilidad de la Inteligencia Artificial. In <em>Derecho, Ética e Inteligencia Artificial</em> (pp. 491–520). Tirant lo Blanch. <a class="doi" href="https://doi.org/10.2139/ssrn.4685079" target="_blank" rel="noopener">SSRN preprint</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2022</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2022). [Review of the book <em>La (des)constitucionalización en la Unión Europea</em>, by J. M. Martínez Sierra]. <em>Cuadernos Constitucionales</em>, 201–203. <a class="doi" href="https://doi.org/10.7203/cc.3.25818" target="_blank" rel="noopener">https://doi.org/10.7203/cc.3.25818</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2022). The limits of memory and the news: Archival journalism, law, ethics, and the right to be forgotten. <em>Revista de Comunicación</em>, <em>21</em>(1), 67–92. <a class="doi" href="https://doi.org/10.26441/RC21.1-2022-A4" target="_blank" rel="noopener">https://doi.org/10.26441/RC21.1-2022-A4</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2022). Marketplace lending: From innovative credit opportunities to privacy discrimination risks. In J. M. Martínez Sierra (Ed.), <em>Blockchain, Fintech and the Law</em> (pp. 394–459). Tirant lo Blanch. <a class="doi" href="https://editorial.tirant.com/es/libro/blockchain-fintech-and-the-law-jose-manuel-martinez-sierra-9788413976525" target="_blank" rel="noopener">Tirant lo Blanch</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2022). Verdad, falsedad en la era de la desinformación: constitucionalismo comparado entre España y Estados Unidos. In <em>Fake News, desinformación y otros desórdenes informativos</em> (pp. 269–291). Editorial Fragua. <a class="doi" href="https://dialnet.unirioja.es/servlet/libro?codigo=872884" target="_blank" rel="noopener">Dialnet</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Martínez-Pastor, E., Cetina Presuel, R., &amp; Castelló-Martínez, A. (2022). Regulación y autorregulación en la creación de contenidos de menores en plataformas digitales. <em>Revista Mediterránea de Comunicación</em>, <em>13</em>(1), 13–15. <a class="doi" href="https://doi.org/10.14198/MEDCOM.21413" target="_blank" rel="noopener">https://doi.org/10.14198/MEDCOM.21413</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Martínez Pastor, E., Cetina Presuel, R., &amp; Serrano Maíllo, I. (2022). Minors as content creators: A study of the effectiveness of advertising regulation in the United States, the United Kingdom and Spain. <em>Media Studies</em>, <em>13</em>(26), 48–69. <a class="doi" href="https://doi.org/10.20901/ms.13.26.3" target="_blank" rel="noopener">https://doi.org/10.20901/ms.13.26.3</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Martínez Pastor, E., Cetina Presuel, R., &amp; Serrano Maíllo, I. (2022). Minors as content creators: A study of United States, United Kingdom and Spanish regulation. <em>American Communication Journal</em>, <em>24</em>(2). <a class="doi" href="https://www.ac-journal.org/wp-content/uploads/2023/12/Pastor_Formatted_Pdf-Version.pdf" target="_blank" rel="noopener">PDF</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Martínez Sierra, J. M. (Ed.), &amp; Cetina Presuel, R. (Coord.). (2022). <em>Blockchain, Fintech and the Law</em>. Tirant lo Blanch. <a class="doi" href="https://editorial.tirant.com/es/libro/blockchain-fintech-and-the-law-jose-manuel-martinez-sierra-9788413976525" target="_blank" rel="noopener">Tirant lo Blanch</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Moreno Bobadilla, Á., Cetina Presuel, R., &amp; Martínez Sierra, J. M. (2022). El derecho al olvido en Europa y en Estados Unidos: dos soluciones diferentes para una misma realidad. <em>Ciência da Informação</em>, <em>51</em>(2). <a class="doi" href="https://doi.org/10.18225/ci.inf.v51i2.5559" target="_blank" rel="noopener">https://doi.org/10.18225/ci.inf.v51i2.5559</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2021</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2021). Un estira y afloja: La definición de las reglas para la libre expresión en las plataformas de redes sociales. <em>Jurídicas CUC</em>, <em>17</em>(1), 499–556. <a class="doi" href="https://doi.org/10.17981/juridcuc.17.1.2021.18" target="_blank" rel="noopener">https://doi.org/10.17981/juridcuc.17.1.2021.18</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2021). Universality vs. standardization: The privatization of communication rights on social media. In L. Corredoira, I. Bel Mallén, &amp; R. Cetina Presuel (Eds.), <em>The Handbook of Communication Rights, Law, and Ethics</em> (pp. 57–74). John Wiley &amp; Sons. <a class="doi" href="https://doi.org/10.1002/9781119476153" target="_blank" rel="noopener">https://doi.org/10.1002/9781119476153</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R., &amp; Gutiérrez Atala, F. (2021). El periodista, los límites de la memoria informativa y el capitalismo de vigilancia: perspectivas éticas. In <em>El derecho a la protección de datos personales en Europa y en América: diferentes visiones para una misma realidad</em> (pp. 687–726). Tirant lo Blanch. <a class="doi" href="https://www.academia.edu/88787093/MORENO_BOBADILLA_%C3%81ngela_y_SERRANO_MA%C3%8DLLO_Isabel_dirs_2021_El_derecho_a_la_protecci%C3%B3n_de_datos_personales_en_Europa_y_en_Am%C3%A9rica_diferentes_visiones_para_una_misma_realidad" target="_blank" rel="noopener">Academia.edu</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Corredoira, L., Bel Mallén, I., &amp; Cetina Presuel, R. (Eds.). (2021). <em>The handbook of communication rights, law, and ethics</em>. John Wiley &amp; Sons. <a class="doi" href="https://doi.org/10.1002/9781119476153" target="_blank" rel="noopener">https://doi.org/10.1002/9781119476153</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2019</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R., &amp; Martínez Sierra, J. M. (2019). Algorithms and the news: Social media platforms as news publishers and distributors. <em>Revista de Comunicación</em>, <em>18</em>(2), 261–285. <a class="doi" href="https://doi.org/10.26441/RC18.2-2019-A13" target="_blank" rel="noopener">https://doi.org/10.26441/RC18.2-2019-A13</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2018</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R., &amp; Zárate Rojas, S. (2018). Introduction to the special issue: The right to the protection of one's own image in Ibero-America and its relevance for the right of publicity in common law countries. <em>Journal of Information Policy</em>, <em>8</em>, 338–345. <a class="doi" href="https://doi.org/10.5325/jinfopoli.8.2018.0338" target="_blank" rel="noopener">https://doi.org/10.5325/jinfopoli.8.2018.0338</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2017</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2017). La defensa de las audiencias en los Estados Unidos: lecciones a aprender ante la aplicación de la nueva ley mexicana. In <em>Los derechos de las audiencias</em> (pp. 57–97). Editorial Flores. <a class="doi" href="https://www.researchgate.net/publication/318827667_LA_DEFENSA_DE_LAS_AUDIENCIAS_EN_LOS_ESTADOS_UNIDOS_LECCIONES_A_APRENDER_ANTE_LA_APLICACION_DE_LA_NUEVA_LEY_MEXICANA" target="_blank" rel="noopener">ResearchGate</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R., Gutiérrez Atala, F., &amp; Corredoira, L. (Eds.). (2017). <em>Periodismo de Frontera y Dignidad Humana</em>. Universidad Complutense de Madrid. <a class="doi" href="https://hdl.handle.net/20.500.14352/20040" target="_blank" rel="noopener">UCM Repository</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2016</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2016). El algoritmo se convierte en editor: Responsabilidades éticas y legales de las redes sociales como plataformas de noticias. In R. Cetina Presuel, L. Corredoira y Alfonso, &amp; F. Gutiérrez Atala (Eds.), <em>Periodismo de frontera y dignidad humana: Cross-border journalism and Human Dignity</em> (p. 156). Universidad Complutense de Madrid. <a class="doi" href="https://www.researchgate.net/publication/310317889_EL_ALGORITMO_SE_CONVIERTE_EN_EDITOR_RESPONSABILIDADES_ETICAS_Y_LEGALES_DE_LAS_REDES_SOCIALES_COMO_PLATAFORMAS_DE_NOTICIAS" target="_blank" rel="noopener">ResearchGate</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2016). La misma ley de siempre ante la nueva tecnología: ¿Es el derecho de autor la ley adecuada para regular la impresión en 3D? <em>Revista de Privacidad y Derecho Digital</em>, (5), 147–192. <a class="doi" href="https://dialnet.unirioja.es/servlet/articulo?codigo=5749236" target="_blank" rel="noopener">Dialnet</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2015</span></div>
+      <div class="pub-entry"><p class="pub-apa">Arellano Toledo, W., Cetina Presuel, R., Corredoira, L., et al. (2015). Derechos de los ciudadanos en el gobierno abierto: doctrina, legislación y políticas en México. In <em>Media and Journalists in the Age of Open Government and Transparency</em> (pp. 106–127). Universidad Complutense de Madrid. <a class="doi" href="https://infotec.repositorioinstitucional.mx/jspui/bitstream/1027/196/1/DERECHOS%20DE%20LOS%20CIUDADANOS%20EN%20EL%20GOBIERNO%20ABIERTO%20DOCTRINA%2C%20LEGISLACI%C3%93N%20Y%20POLITICAS%20EN%20ME.pdf" target="_blank" rel="noopener">PDF</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2015). Constituto.org: Bringing the Mexican constitution closer to Mexican citizens. In <em>Media and Journalists in the Age of Open Government and Transparency</em> (pp. 128–157). Universidad Complutense de Madrid. <a class="doi" href="https://www.researchgate.net/publication/305045068_Constitutoorg_Bringing_the_Mexican_Constitution_closer_to_Mexican_Citizens" target="_blank" rel="noopener">ResearchGate</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R., &amp; Arellano Toledo, W. (2015). El derecho a la información en México y EE.UU: desarrollo normativo y jurisprudencial. In <em>Derecho de la Información: El ejercicio del derecho a la información y su jurisprudencia</em> (pp. 143–165). Centro de Estudios Políticos y Constitucionales. <a class="doi" href="https://dialnet.unirioja.es/servlet/articulo?codigo=5365264" target="_blank" rel="noopener">Dialnet</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R., &amp; Corredoira y Alfonso, L. (2015). Current copyright policy tendencies in 2015: Further weakening of limits and exceptions and the ever reducing public domain. IHELG Monograph 16-01. <a class="doi" href="https://papers.ssrn.com/abstract=2642088" target="_blank" rel="noopener">SSRN 2642088</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2014</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2014). ¿De la sartén a fuego? La cuestión de la adopción del fair use como solución al sistema de límites al derecho de autor en México. <em>Virtualis</em>, <em>5</em>(10), 62–87. <a class="doi" href="https://doi.org/10.2123/virtualis.v5i10.103" target="_blank" rel="noopener">https://doi.org/10.2123/virtualis.v5i10.103</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2012</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2012). Garantías a la libertad de expresión en las redes sociales en España y el caso de Facebook. In W. A. Arellano Toledo (Ed.), <em>La Sociedad de la Información en Iberoamérica</em> (pp. 209–224). INFOTEC. <a class="doi" href="https://www.researchgate.net/publication/274391079_Garantias_a_la_libertad_de_expresion_en_las_redes_sociales_en_Espana_y_el_caso_Facebook" target="_blank" rel="noopener">ResearchGate</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">Corredoira, L., Sanjuán, A., Rodríguez, J. J. V., &amp; Cetina Presuel, R. (2012). Menores y alfabetización digital. Teleclip TV: cuatro años de producción infantil y televisión por Internet. <em>Chasqui: Revista Latinoamericana de Comunicación</em>, (117), 20–24. <a class="doi" href="https://dialnet.unirioja.es/servlet/articulo?codigo=5791108" target="_blank" rel="noopener">Dialnet</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2011</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R., &amp; Corredoira y Alfonso, L. (2011). Vídeo on demand para la educación e investigación: Excepciones al derecho de autor. <em>ZER: Revista de Estudios de Comunicación</em>, <em>16</em>(30). <a class="doi" href="https://doi.org/10.1387/zer.4799" target="_blank" rel="noopener">https://doi.org/10.1387/zer.4799</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">López-Yepes, A., Romero, S., Cámara-Bados, V., &amp; Cetina-Presuel, R. (2011). Redocom 2.0: medio de comunicación universitario en documentación informativa con proyección iberoamericana. <em>El Profesional de la Información</em>, <em>20</em>(1), 94–101. <a class="doi" href="https://doi.org/10.3145/epi.2011.ene.11" target="_blank" rel="noopener">https://doi.org/10.3145/epi.2011.ene.11</a></p></div>
+      <div class="pub-year-group"><span class="pub-year">2010</span></div>
+      <div class="pub-entry"><p class="pub-apa">Cetina Presuel, R. (2010). Privacidad en las redes sociales: Dos casos prácticos, las políticas de usuarios de Facebook y Google. In <em>Las audiencias activas, nuevas formas de participación pública. Consideraciones éticas y jurídicas</em> (pp. 161–182). Universidad Panamericana. <a class="doi" href="https://dialnet.unirioja.es/servlet/articulo?codigo=4129120" target="_blank" rel="noopener">Dialnet</a></p></div>
+      <div class="pub-entry"><p class="pub-apa">López Yepes, A., Romero, S., &amp; Cetina Presuel, R. (2010). REDOCOM 2.0: Hacia una red social de documentación en medios de comunicación con proyección iberoamericana: una propuesta de integración para Perú. <em>Alexandría: Revista de Ciencias de la Información</em>, (7), 41–53. <a class="doi" href="https://revistas.pucp.edu.pe/index.php/alexandria/article/view/274" target="_blank" rel="noopener">PUCP</a></p></div>
+    </section>
+
+    <!-- RESEARCH PROJECTS & GRANTS -->
+    <section class="section">
+      <h2 class="section-title">Research Projects &amp; Grants</h2>
+
+      <div class="grant-entry">
+        <div class="grant-name">AI Researchers &nbsp;|&nbsp; Erasmus+ Programme</div>
+        <div class="grant-meta">Nov 2025 &#x2013; Apr 2028 &nbsp;&#xB7;&nbsp; &#x20AC;400,000</div>
+        <div class="grant-note">Grant No. 2025-1-PL01-KA220-HED-000358408.</div>
+      </div>
+
+      <div class="grant-entry">
+        <div class="grant-name">Jean Monnet Centre of Excellence: Press Forward &#x2014; Journalism, European Democracy and the Right to Information &nbsp;|&nbsp; Erasmus+</div>
+        <div class="grant-meta">Sep 2025 &#x2013; Present &nbsp;&#xB7;&nbsp; &#x20AC;100,000</div>
+        <div class="grant-note">Project 101240354. Acronym: Press-Forward. Call: ERASMUS-JMO-2025-HEI-TCH-RSCH.</div>
+      </div>
+
+      <div class="grant-entry">
+        <div class="grant-name">e-Opinion: The Governance and Markets for Digital Public Opinion in the EU &nbsp;|&nbsp; Agencia Estatal de Investigaci&#xF3;n</div>
+        <div class="grant-meta">Sep 2025 &#x2013; Aug 2029 &nbsp;&#xB7;&nbsp; &#x20AC;50,625</div>
+        <div class="grant-note">Grant No. PID2024-160748NB-I00.</div>
+      </div>
+
+      <div class="grant-entry">
+        <div class="grant-name">Jean Monnet Chair: Decoding-i-Disorders &nbsp;|&nbsp; Erasmus+</div>
+        <div class="grant-meta">Sep 2025 &#x2013; Present</div>
+        <div class="grant-note">Principal Investigator. Grant: ERASMUS-JMO-2025-HEI-TCH-RSCH.</div>
+      </div>
+
+      <div class="grant-entry">
+        <div class="grant-name">Safeguarding Freedom of Expression Through the Implementation of UNESCO Guidelines for the Governance of Digital Platforms &nbsp;|&nbsp; UNESCO</div>
+        <div class="grant-meta">Jun 2025 &#x2013; Present &nbsp;&#xB7;&nbsp; $38,776 USD</div>
+        <div class="grant-note">Principal Investigator. Contract No. 4500539265. Covers Mexico, Costa Rica, Panama, Dominican Republic.</div>
+      </div>
+
+      <div class="grant-entry">
+        <div class="grant-name">AI Leaders: Ethical AI for Future Business Leaders &nbsp;|&nbsp; European Commission / Erasmus+</div>
+        <div class="grant-meta">Jan 2024 &#x2013; Present &nbsp;&#xB7;&nbsp; &#x20AC;250,000</div>
+        <div class="grant-note">Researcher. Grant No. 2023-2-PL01-KA220-HED-000180952. <a class="doi" href="https://aileaders-project.eu/" target="_blank" rel="noopener">aileaders-project.eu</a></div>
+      </div>
+
+      <div class="grant-entry">
+        <div class="grant-name">Responses Against Foreign Information Manipulation and Interference in Minority Languages &nbsp;|&nbsp; NATO</div>
+        <div class="grant-meta">Apr 2024 &#x2013; Dec 2024 &nbsp;&#xB7;&nbsp; &#x20AC;27,135</div>
+        <div class="grant-note">Principal Investigator. NATO Co-Sponsorship Grant for Public Diplomacy Projects.</div>
+      </div>
+
+      <div class="grant-entry">
+        <div class="grant-name">Dir-Politics: Institutional and Regulatory Guarantees. Electoral and Digital Supervision Authorities &nbsp;|&nbsp; Agencia Estatal de Investigaci&#xF3;n</div>
+        <div class="grant-meta">2023 &#x2013; Present &nbsp;&#xB7;&nbsp; &#x20AC;56,250</div>
+        <div class="grant-note">Researcher. Ref: PID2022-137245OB-I00.</div>
+      </div>
+
+      <div class="grant-entry">
+        <div class="grant-name">CYBER-ELECTIONS: Cybersecurity in Electoral Processes &nbsp;|&nbsp; Plan Estatal de I+D+I</div>
+        <div class="grant-meta">2023 &nbsp;&#xB7;&nbsp; &#x20AC;145,000</div>
+        <div class="grant-note">Researcher. Ref: TED2021-13130876B-100 DER.</div>
+      </div>
+
+      <div class="grant-entry">
+        <div class="grant-name">Garant&#xED;as frente a la desinformaci&#xF3;n en procesos electorales, cuestiones de ciberseguridad y otros des&#xF3;rdenes informativos en redes &nbsp;|&nbsp; Ministerio de Ciencia e Innovaci&#xF3;n</div>
+        <div class="grant-meta">2020 &#x2013; 2022</div>
+        <div class="grant-note">Researcher. Ref: PID2019-105334RB-I00.</div>
+      </div>
+
+      <div class="grant-entry">
+        <div class="grant-name">SN-Disorders: Observatorio de Desinformaci&#xF3;n &nbsp;|&nbsp; Agencia Estatal de Investigaci&#xF3;n</div>
+        <div class="grant-meta">2021 &#x2013; 2023 &nbsp;&#xB7;&nbsp; &#x20AC;35,000</div>
+        <div class="grant-note">Researcher.</div>
+      </div>
+
+      <div class="grant-entry">
+        <div class="grant-name">El avance del Gobierno Abierto &nbsp;|&nbsp; Ministerio de Econom&#xED;a y Competitividad</div>
+        <div class="grant-meta">2016 &#x2013; 2018</div>
+        <div class="grant-note">Researcher. Ref: DER2015-65810-P.</div>
+      </div>
+    </section>
+
+    <!-- LANGUAGE SKILLS -->
+    <section class="section">
+      <h2 class="section-title">Language Skills</h2>
+      <div class="lang-grid">
+        <span class="lang-name">English</span><span class="lang-detail">Native</span>
+        <span class="lang-name">Spanish</span><span class="lang-detail">Native</span>
+        <span class="lang-name">Catalan</span><span class="lang-detail">Upper Intermediate (B2 listening/reading/spoken interaction; B1 spoken production/writing)</span>
+        <span class="lang-name">Italian</span><span class="lang-detail">Intermediate (B1 listening/spoken; B2 reading; A2 writing)</span>
+      </div>
+    </section>
+
+    <div class="cv-footer">
+      Updated March 2026 &nbsp;&#xB7;&nbsp; UPF Barcelona School of Management &nbsp;&#xB7;&nbsp;
+      ORCID: <a href="https://orcid.org/0000-0002-1061-0166" target="_blank" rel="noopener" style="color:inherit">0000-0002-1061-0166</a>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
